@@ -1,6 +1,5 @@
 import { Language } from "./language";
 
-
 export default [
   {
     key: "en",
@@ -8,8 +7,8 @@ export default [
     prefix: "🇺🇸",
   },
   {
-    key: "pt-BR",
-    nativeName: "Português (Brasil)",
-    prefix: "🇧🇷",
+    key: "de-DE",
+    nativeName: "Deutsch",
+    prefix: "de",
   },
 ] satisfies Language[];

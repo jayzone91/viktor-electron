@@ -5,6 +5,13 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
+  --color-system-red: hsl(var(--systemRed));
+  --color-system-red-vibrant: hsl(var(--systemRedVibrant));
+  --color-system-yellow: hsl(var(--systemYellow));
+  --color-system-yellow-vibrant: hsl(var(--systemYellowVibrant));
+  --color-system-green: hsl(var(--systemGreen));
+  --color-system-green-vibrant: hsl(var(--systemGreenVibrant));
+
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
@@ -118,6 +125,13 @@
 
 @layer base {
   :root {
+    --systemRed: 3, 100%, 61%;
+    --systemRedVibrant: 4, 81%, 44%;
+    --systemYellow: 48, 100%, 50%;
+    --systemYellowVibrant: 52, 100%, 40%;
+    --systemGreen: 129, 67%, 48%;
+    --systemGreenVibrant: 126, 83%, 38%;
+
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
@@ -150,6 +164,13 @@
   }
 
   .dark {
+    --systemRed: 3, 100%, 61%;
+    --systemRedVibrant: 12, 100%, 59%;
+    --systemYellow: 50, 100%, 52%;
+    --systemYellowVibrant: 53, 100%, 60%;
+    --systemGreen: 129, 67%, 52%;
+    --systemGreenVibrant: 129, 76%, 62%;
+
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
 

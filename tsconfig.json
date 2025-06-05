@@ -1,25 +1,25 @@
 {
-    "compilerOptions": {
-        "jsx": "react",
-        "target": "esnext",
-        "module": "commonjs",
-         "lib": ["dom", "ESNext"],
-         "experimentalDecorators": true,
-         "composite": true,
-         "declaration": true,
-         "forceConsistentCasingInFileNames": true,
-         "allowJs": false,
-         "esModuleInterop": true,
-         "noImplicitAny": true,
-         "sourceMap": true,
-         "strict": true,
-         "baseUrl": ".",
-         "paths": {
-            "@/*": ["./stc/*"]
-         },
-         "outDir": "dist",
-         "moduleResolution": "node",
-         "resolveJsonModule": true
-    } ,
-    "include": ["src/**/*", "./package.json", "./forge.config.ts"]
+  "compilerOptions": {
+    "jsx": "react",
+    "target": "esnext",
+    "module": "commonjs",
+    "lib": ["dom", "ESNext"],
+    "experimentalDecorators": true,
+    "composite": true,
+    "declaration": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowJs": false,
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "sourceMap": true,
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "outDir": "dist",
+    "moduleResolution": "node",
+    "resolveJsonModule": true
+  },
+  "include": ["src/**/*", "./package.json", "./forge.config.ts"]
 }
