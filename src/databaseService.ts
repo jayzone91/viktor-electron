@@ -1,13 +1,16 @@
 import { MySQL } from "./utils/mysqlUtils";
 
-export type Category = {
-  id?: number;
-  name: string;
+export type ArchiveResult = {
+  id: number;
+  Title: string;
+  Body: string;
 };
 
 export const CategoryService = {
-  getCategories: async (): Promise<Category[]> => {
-    const res = await MySQL.runQuery<Category[]>(`SELECT * FROM categories`);
+  searchArchiv: async (search: string): Promise<ArchiveResult[]> => {
+    const res = await MySQL.runQuery<ArchiveResult[]>(
+      `SELECT * FROM pdfs WHERE body LIKE %${search}% OR title LIKE %${search}%;`
+    );
     return res;
   },
 };
