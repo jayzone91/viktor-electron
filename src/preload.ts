@@ -1,9 +1,9 @@
-import { CategoryService } from "./databaseService";
 // See the Electron documentation for details on how to use preload scripts:
 // https://www.electronjs.org/docs/latest/tutorial/process-model#preload-scripts
 
-import { contextBridge } from "electron";
+import { contextBridge, ipcRenderer } from "electron";
 
-contextBridge.exposeInMainWorld("database", {
-  searchService: async (search: string) => CategoryService.searchArchiv(search),
+contextBridge.exposeInMainWorld("electronAPI", {
+  searchArchive: (search: string) =>
+    ipcRenderer.invoke("search-archive", search),
 });

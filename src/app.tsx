@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ArchiveResult } from "./databaseService";
+import type { ArchiveResult } from "./main";
 
 export default function App() {
   const [search, setSearch] = useState<string | null>(null);
@@ -10,7 +10,7 @@ export default function App() {
     if (search == null) return;
     if (search.length < 3) return;
     setLoading(true);
-    const res = await window.database.searchService(search);
+    const res = await window.electronAPI.searchArchive(search);
     setResults(res);
     setLoading(false);
   };
@@ -29,7 +29,7 @@ export default function App() {
       <ul>
         {results &&
           !loading &&
-          results.map((x) => <li key={x.id}>{x.Title}</li>)}
+          results.map((x) => <li key={x.id}>{x.title}</li>)}
       </ul>
     </div>
   );
