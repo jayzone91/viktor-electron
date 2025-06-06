@@ -1,4 +1,4 @@
-import type { ArchiveResult } from "./main";
+import type { ArchiveResult } from "./ipc/archive";
 
 export {};
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import type { ArchiveResult } from "./main";
+import type { ArchiveResult } from "./ipc/archive";
 
 export default function App() {
   const [search, setSearch] = useState<string | null>(null);

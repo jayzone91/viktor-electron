@@ -1,7 +1,7 @@
-import { app, BrowserWindow, ipcMain } from "electron";
+import { app, BrowserWindow } from "electron";
 import started from "electron-squirrel-startup";
-import * as mysql from "mysql2/promise";
 import path from "node:path";
+import { registerArchiveHandler } from "./ipc/archive";
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (started) {
@@ -52,36 +52,9 @@ app.on("activate", () => {
   // dock icon is clicked and there are no other windows open.
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow();
+    registerArchiveHandler();
   }
 });
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
-
-export type ArchiveResult = {
-  id: number;
-  title: string;
-  body: string;
-};
-
-const conn = mysql.createConnection({
-  host: import.meta.env.VITE_MYSQL_HOST,
-  user: import.meta.env.VITE_MYSQL_USER,
-  password: import.meta.env.VITE_MYSQL_PASSWORD,
-  database: import.meta.env.VITE_MYSQL_DATABASE,
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0,
-});
-
-ipcMain.handle("search-archive", async (_event, search: string) => {
-  const [results, fields] = await (
-    await conn
-  ).execute("SELECT * FROM pdfs WHERE body LIKE ? OR title LIKE ?;", [
-    `%${search}%`,
-    `%${search}%`,
-  ]);
-  console.log(results);
-  console.log(fields);
-  return results;
-});
