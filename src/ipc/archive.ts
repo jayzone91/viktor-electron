@@ -19,14 +19,14 @@ const conn = createConnection({
 
 export function registerArchiveHandler() {
   ipcMain.handle("search-archive", async (_event, search: string) => {
-    const [results, fields] = await (
+    const [results] = await (
       await conn
     ).execute("SELECT * FROM pdfs WHERE body LIKE ? OR title LIKE ?;", [
       `%${search}%`,
       `%${search}%`,
     ]);
     console.log(results);
-    console.log(fields);
+
     return results;
   });
 }

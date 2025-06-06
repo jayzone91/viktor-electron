@@ -28,6 +28,7 @@
     "@electron-forge/plugin-vite": "^7.8.1",
     "@electron/fuses": "^1.8.0",
     "@types/electron-squirrel-startup": "^1.0.2",
+    "@types/mssql": "^9.1.7",
     "@types/react": "^19.1.6",
     "@types/react-dom": "^19.1.6",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
@@ -41,6 +42,7 @@
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.1",
+    "mssql": "^11.0.1",
     "mysql2": "^3.14.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
